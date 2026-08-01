@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Fira_Code } from "next/font/google";
+import { Inter, Fira_Code, Plus_Jakarta_Sans } from "next/font/google";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
@@ -15,10 +15,17 @@ const firaCode = Fira_Code({
   display: "swap",
 });
 
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-heading",
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Eyob Tesfaye Mulugeta | Software Engineer",
   description:
-    "Software Engineer specializing in Mobile Development (Flutter/Dart), Full-Stack, AI/ML Systems, and Backend Engineering in Go & Python. A2SV Google Fellow. 800+ LeetCode problems solved.",
+    "Software Engineer specializing in Mobile Development (Flutter/Dart), Full-Stack, AI/ML Systems, and Backend Engineering in Go & Python. 800+ LeetCode problems solved.",
   keywords: [
     "Eyob Tesfaye Mulugeta",
     "Software Engineer",
@@ -29,7 +36,6 @@ export const metadata: Metadata = {
     "AI Engineer",
     "Full Stack Developer",
     "Addis Ababa",
-    "A2SV",
   ],
   authors: [{ name: "Eyob Tesfaye Mulugeta" }],
   openGraph: {
@@ -50,7 +56,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${firaCode.variable}`}
+      className={`${inter.variable} ${firaCode.variable} ${plusJakartaSans.variable}`}
     >
       <head>
         <link

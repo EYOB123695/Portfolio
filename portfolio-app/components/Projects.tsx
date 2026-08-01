@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface Project {
   title: string;
@@ -102,6 +102,15 @@ const projects: Project[] = [
 ];
 
 export default function Projects() {
+  const [expandedProjects, setExpandedProjects] = useState<Record<number, boolean>>({});
+
+  const toggleFeatures = (index: number) => {
+    setExpandedProjects((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -136,6 +145,7 @@ export default function Projects() {
           const animationClass = isEven
             ? "project-card-reveal-left"
             : "project-card-reveal-right";
+          const isExpanded = Boolean(expandedProjects[index]);
 
           return (
             <div
@@ -190,20 +200,34 @@ export default function Projects() {
                   </h3>
                   <div className="project-description">
                     <p>{project.description}</p>
+
                     {project.features && (
-                      <div className="project-features-box mt-3 pt-3 border-t border-[var(--lightest-navy)]">
-                        <span className="text-xs font-mono text-[var(--green)] block mb-1.5 font-semibold">
-                          Key Features:
-                        </span>
-                        <ul className="text-xs space-y-1 text-[var(--slate)] pl-1">
-                          {project.features.map((feat, i) => (
-                            <li key={i} className="flex items-start gap-1.5">
-                              <span className="text-[var(--green)]">▹</span>
-                              <span>{feat}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                      <>
+                        <button
+                          type="button"
+                          onClick={() => toggleFeatures(index)}
+                          className="see-more-btn"
+                          aria-expanded={isExpanded}
+                        >
+                          <span>{isExpanded ? "See Less ▴" : "See Key Features ▾"}</span>
+                        </button>
+
+                        {isExpanded && (
+                          <div className="project-features-box">
+                            <span className="text-xs font-mono text-[var(--green)] block mb-1.5 font-semibold">
+                              Key Features:
+                            </span>
+                            <ul className="text-xs space-y-1.5 text-[var(--slate)] pl-1">
+                              {project.features.map((feat, i) => (
+                                <li key={i} className="flex items-start gap-1.5">
+                                  <span className="text-[var(--green)]">▹</span>
+                                  <span>{feat}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </>
                     )}
                   </div>
                 </header>

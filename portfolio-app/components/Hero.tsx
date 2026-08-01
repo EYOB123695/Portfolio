@@ -28,7 +28,7 @@ export default function Hero() {
 
   return (
     <section id="hero" className="section hero-section">
-      <div className="hero-content">
+      <div className="hero-content" style={{ width: "100%" }}>
         {/* Eyebrow + Animated Name in smaller font and without cursor icon */}
         <h1
           className="hero-overline"
@@ -47,15 +47,16 @@ export default function Hero() {
           </span>
         </h1>
 
-        {/* Main Headline Title */}
+        {/* Main Headline Title forced into ONE single line without three dots */}
         <h2
           className="hero-title"
           style={{
-            fontSize: "clamp(34px, 6vw, 56px)",
+            fontSize: "clamp(15px, 2.7vw, 34px)",
             color: "var(--lightest-slate)",
-            lineHeight: 1.1,
+            lineHeight: 1.2,
             fontWeight: 700,
             marginTop: "10px",
+            whiteSpace: "nowrap",
           }}
         >
           I build intelligent mobile apps, robust backends &amp; AI solutions.
