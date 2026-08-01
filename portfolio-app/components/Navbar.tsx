@@ -57,8 +57,6 @@ export default function Navbar() {
             <a
               href="mailto:eyobtesfaye2002@gmail.com"
               className="btn btn-outline"
-              target="_blank"
-              rel="noopener noreferrer"
             >
               Get In Touch
             </a>

@@ -50,7 +50,12 @@ export default function Contact() {
       </div>
       <div className="contact-details" style={{ marginTop: "30px" }}>
         <p>
-          <i className="fas fa-map-marker-alt" /> Addis Ababa, Ethiopia
+          <a
+            href="mailto:eyobtesfaye2002@gmail.com"
+            className="hover:text-[var(--green)] transition-colors"
+          >
+            <i className="fas fa-envelope" /> eyobtesfaye2002@gmail.com
+          </a>
         </p>
         <p>
           <i className="fas fa-phone-alt" /> +251 953 850 592

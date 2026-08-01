@@ -20,11 +20,6 @@ const socialLinks = [
     icon: "fas fa-code",
     label: "LeetCode",
   },
-  {
-    href: "mailto:eyobtesfaye2002@gmail.com",
-    icon: "fas fa-envelope",
-    label: "Email",
-  },
 ];
 
 export default function Sidebars() {
@@ -40,7 +35,7 @@ export default function Sidebars() {
                   <a
                     href={link.href}
                     target={link.href.startsWith("mailto") ? undefined : "_blank"}
-                    rel="noopener noreferrer"
+                    rel={link.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
                     aria-label={link.label}
                   >
                     <i className={link.icon} />
