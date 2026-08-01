@@ -1,19 +1,20 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
-const FULL_NAME = "Eyob Tesfaye.";
+import { heroConfig } from "@/lib/portfolio-data";
 
 export default function Hero() {
   const [typedName, setTypedName] = useState("");
+  const [adjectiveIndex, setAdjectiveIndex] = useState(0);
+  const [isFading, setIsFading] = useState(false);
 
+  // Sync typing animation with preloader
   useEffect(() => {
-    // Start typing after 4.2 seconds to sync perfectly with preloader completion
     const startDelay = setTimeout(() => {
       let currentIndex = 0;
       const typeInterval = setInterval(() => {
-        if (currentIndex < FULL_NAME.length) {
-          setTypedName(FULL_NAME.slice(0, currentIndex + 1));
+        if (currentIndex < heroConfig.fullName.length) {
+          setTypedName(heroConfig.fullName.slice(0, currentIndex + 1));
           currentIndex++;
         } else {
           clearInterval(typeInterval);
@@ -25,6 +26,23 @@ export default function Hero() {
 
     return () => clearTimeout(startDelay);
   }, []);
+
+  // Scalable dynamic adjective rotation focusing on "intelligent" & core competencies
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsFading(true);
+      setTimeout(() => {
+        setAdjectiveIndex(
+          (prev) => (prev + 1) % heroConfig.dynamicAdjectives.length
+        );
+        setIsFading(false);
+      }, 300);
+    }, 3200);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentAdjective = heroConfig.dynamicAdjectives[adjectiveIndex];
 
   return (
     <section id="hero" className="section hero-section">
@@ -41,39 +59,60 @@ export default function Hero() {
             lineHeight: 1.4,
           }}
         >
-          Hi, I am{" "}
+          {heroConfig.greeting}{" "}
           <span style={{ color: "var(--green)", fontWeight: 600 }}>
             {typedName}
           </span>
         </h1>
 
-        {/* Main Headline Title forced into ONE single line without three dots */}
+        {/* Scalable & Fully Responsive Main Headline */}
         <h2
           className="hero-title"
           style={{
-            fontSize: "clamp(15px, 2.7vw, 34px)",
+            fontSize: "clamp(22px, 4.2vw, 44px)",
             color: "var(--lightest-slate)",
-            lineHeight: 1.2,
+            lineHeight: 1.25,
             fontWeight: 700,
             marginTop: "10px",
-            whiteSpace: "nowrap",
+            whiteSpace: "normal",
+            wordBreak: "break-word",
+            maxWidth: "950px",
           }}
         >
-          I build intelligent mobile apps, robust backends &amp; AI solutions.
+          {heroConfig.headlinePrefix}
+          <span
+            tabIndex={0}
+            aria-label={`Attribute: ${currentAdjective}`}
+            style={{
+              display: "inline-block",
+              background:
+                "linear-gradient(135deg, #64ffda 0%, #00e676 50%, #64ffda 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              transition: "opacity 0.3s ease, transform 0.3s ease",
+              opacity: isFading ? 0 : 1,
+              transform: isFading ? "translateY(4px)" : "translateY(0)",
+              fontWeight: 800,
+              paddingRight: "0.25em",
+            }}
+          >
+            {currentAdjective}
+          </span>
+          {heroConfig.headlineSuffix}
         </h2>
 
-        {/* Introduction Overview */}
+        {/* Overview Bio */}
         <p
           className="hero-description"
           style={{
-            fontSize: "clamp(17px, 2.2vw, 20px)",
+            fontSize: "clamp(16px, 2vw, 19px)",
             maxWidth: "680px",
             lineHeight: 1.7,
             marginTop: "25px",
             color: "var(--slate)",
           }}
         >
-          I&apos;m a software engineer based in Addis Ababa, Ethiopia,
+          I&apos;m a software engineer based in {heroConfig.bio.location},
           specializing in high-performance{" "}
           <strong style={{ color: "var(--lightest-slate)", fontWeight: 500 }}>
             mobile app development
