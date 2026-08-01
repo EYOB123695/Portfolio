@@ -76,9 +76,13 @@ export default function Hero() {
           I&apos;m a software engineer based in Addis Ababa, Ethiopia,
           specializing in high-performance{" "}
           <strong style={{ color: "var(--lightest-slate)", fontWeight: 500 }}>
-            cross-platform mobile architecture
+            mobile app development
           </strong>{" "}
-          (Flutter &amp; Bloc), scalable{" "}
+          (Flutter &amp; Bloc),{" "}
+          <strong style={{ color: "var(--lightest-slate)", fontWeight: 500 }}>
+            fullstack application development
+          </strong>
+          , scalable{" "}
           <strong style={{ color: "var(--lightest-slate)", fontWeight: 500 }}>
             backend microservices
           </strong>{" "}

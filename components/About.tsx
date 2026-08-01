@@ -24,16 +24,16 @@ export default function About() {
             graduate from{" "}
             <strong>
               Addis Ababa Science and Technology University (AASTU)
-            </strong>{" "}
-            and a fellow at{" "}
-            <strong>Africa To Silicon Valley (A2SV)</strong>, backed by
-            Google.
+            </strong>
+            , <strong>Africa To Silicon Valley (A2SV)</strong>, and{" "}
+            <strong>GDSC Alumni</strong>.
           </p>
           <p>
             My passion lies at the intersection of algorithmic efficiency,
-            mobile client architecture, and artificial intelligence.
-            I&apos;ve solved <strong>800+ algorithmic problems</strong> across
-            LeetCode &amp; Codeforces, achieving a 95% consistency rate.
+            mobile app development, fullstack application development, and
+            artificial intelligence. I&apos;ve solved{" "}
+            <strong>800+ algorithmic problems</strong> across LeetCode &amp;
+            Codeforces, achieving a 95% consistency rate.
           </p>
           <p>
             Over the years, I&apos;ve had the privilege of architecting
