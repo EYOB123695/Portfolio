@@ -32,7 +32,7 @@ export default function About() {
             My passion lies at the intersection of algorithmic efficiency,
             mobile app development, fullstack application development, and
             artificial intelligence. I&apos;ve solved{" "}
-            <strong>800+ algorithmic problems</strong> across LeetCode &amp;
+            <strong>800+ algorithmic problems</strong>{" "}across LeetCode &amp;
             Codeforces, achieving a 95% consistency rate.
           </p>
           <p>
