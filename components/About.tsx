@@ -20,7 +20,7 @@ export default function About() {
       <div className="about-grid">
         <div className="about-text">
           <p>
-            Hello! I&apos;m a Software Engineering graduate from{" "}
+            I am a Software Engineering graduate from{" "}
             <strong>
               Addis Ababa Science and Technology University (AASTU)
             </strong>{" "}
