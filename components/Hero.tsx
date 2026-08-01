@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-const FULL_NAME = "Eyob Tesfaye Mulugeta.";
+const FULL_NAME = "Eyob Tesfaye.";
 
 export default function Hero() {
   const [typedName, setTypedName] = useState("");
@@ -29,7 +29,7 @@ export default function Hero() {
   return (
     <section id="hero" className="section hero-section">
       <div className="hero-content" style={{ width: "100%" }}>
-        {/* Eyebrow + Animated Name in smaller font and without cursor icon */}
+        {/* Eyebrow + Animated Name */}
         <h1
           className="hero-overline"
           style={{
@@ -41,7 +41,7 @@ export default function Hero() {
             lineHeight: 1.4,
           }}
         >
-          Hi, my name is{" "}
+          Hi, I am{" "}
           <span style={{ color: "var(--green)", fontWeight: 600 }}>
             {typedName}
           </span>
