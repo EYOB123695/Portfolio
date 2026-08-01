@@ -20,26 +20,24 @@ export default function About() {
       <div className="about-grid">
         <div className="about-text">
           <p>
-            Hello! My name is Eyob Tesfaye Mulugeta, a Software Engineering
-            graduate from{" "}
+            Hello! I&apos;m a Software Engineering graduate from{" "}
             <strong>
               Addis Ababa Science and Technology University (AASTU)
-            </strong>
-            , <strong>Africa To Silicon Valley (A2SV)</strong>, and{" "}
-            <strong>GDSC Alumni</strong>.
+            </strong>{" "}
+            and an alumnus of <strong>Africa to Silicon Valley (A2SV)</strong>{" "}
+            and <strong>GDSC</strong>.
           </p>
           <p>
-            My passion lies at the intersection of algorithmic efficiency,
-            mobile app development, fullstack application development, and
-            artificial intelligence. I&apos;ve solved{" "}
-            <strong>800+ algorithmic problems</strong>{" "}across LeetCode &amp;
-            Codeforces, achieving a 95% consistency rate.
+            My journey in software engineering spans <strong>full-stack</strong>,{" "}
+            <strong>mobile</strong>, and <strong>AI development</strong>—ranging from
+            building high-performance Flutter applications using Clean Architecture to
+            designing agentic LLM pipelines and LSP-based developer tools. I focus on
+            creating scalable, clean, and efficient systems that solve real-world
+            challenges.
           </p>
           <p>
-            Over the years, I&apos;ve had the privilege of architecting
-            products for creative media companies, building Language Server
-            Protocols for AI frameworks at IcogLabs, and constructing
-            production-ready APIs in Go.
+            I&apos;ve solved <strong>800+ algorithmic problems</strong> across
+            LeetCode &amp; Codeforces, achieving a 95% consistency rate.
           </p>
           <p>
             Here are a few technologies I&apos;ve been working with recently:
