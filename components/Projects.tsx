@@ -13,6 +13,27 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "Nexus Feed",
+    description:
+      "High-frequency market aggregator and real-time trading engine in Go, achieving sub-millisecond tick ingestion from Binance and Coinbase using a lock-free ring buffer and dynamic Level-2 order book ladders.",
+    features: [
+      "Engineered sub-millisecond tick ingestion from Binance and Coinbase using a 64K lock-free ring buffer and an O(log N) SkipList order book",
+      "Reduced network payload volume by 99.6% by designing a 50ms (20 FPS) batch conflation engine and real-time cross-exchange arbitrage scanner",
+      "Developed a responsive Next.js trading terminal featuring dynamic Level-2 order book ladders and live engine telemetry",
+      "Benchmarked scalability with 1,000 concurrent clients, successfully delivering 36,000+ deep market snapshots in 60 seconds with a 99.98% success rate",
+    ],
+    tech: [
+      "Go",
+      "Next.js",
+      "TypeScript",
+      "WebSockets",
+      "Lock-Free Concurrency",
+      "SkipList",
+      "Order Book",
+    ],
+    github: "https://github.com/EYOB123695/Nexus-Feed",
+  },
+  {
     title: "Arada Store",
     description:
       "A full-featured modern e-commerce web application featuring secure online payment integration, interactive add-to-cart cart state management, real-time product searching, and dynamic category filtering.",
@@ -198,43 +219,45 @@ export default function Projects() {
                       project.title
                     )}
                   </h3>
-                  <div className="project-description">
-                    <p>{project.description}</p>
-
-                    {project.features && (
-                      <>
-                        <button
-                          type="button"
-                          onClick={() => toggleFeatures(index)}
-                          className="see-more-btn"
-                          aria-expanded={isExpanded}
-                        >
-                          <span>{isExpanded ? "See Less ▴" : "See Key Features ▾"}</span>
-                        </button>
-
-                        {isExpanded && (
-                          <div className="project-features-box">
-                            <span className="text-xs font-mono text-[var(--green)] block mb-1.5 font-semibold">
-                              Key Features:
-                            </span>
-                            <ul className="text-xs space-y-1.5 text-[var(--slate)] pl-1">
-                              {project.features.map((feat, i) => (
-                                <li key={i} className="flex items-start gap-1.5">
-                                  <span className="text-[var(--green)]">▹</span>
-                                  <span>{feat}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                      </>
-                    )}
-                  </div>
                 </header>
+
+                <div className="project-description">
+                  <p>{project.description}</p>
+
+                  {project.features && project.features.length > 0 && (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => toggleFeatures(index)}
+                        className="see-more-btn"
+                        aria-expanded={isExpanded}
+                      >
+                        <span>{isExpanded ? "See Less ▴" : "See Key Features ▾"}</span>
+                      </button>
+
+                      {isExpanded && (
+                        <div className="project-features-box">
+                          <span className="text-xs font-mono text-[var(--green)] block mb-1.5 font-semibold">
+                            Key Features:
+                          </span>
+                          <ul className="text-xs space-y-1.5 text-[var(--slate)] pl-1">
+                            {project.features.map((feat, i) => (
+                              <li key={`${project.title}-feat-${i}`} className="flex items-start gap-1.5">
+                                <span className="text-[var(--green)]">▹</span>
+                                <span>{feat}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </>
+                  )}
+                </div>
+
                 <footer>
                   <ul className="project-tech-list">
-                    {project.tech.map((t) => (
-                      <li key={t}>{t}</li>
+                    {project.tech.map((t, i) => (
+                      <li key={`${project.title}-tech-${i}-${t}`}>{t}</li>
                     ))}
                   </ul>
                 </footer>
